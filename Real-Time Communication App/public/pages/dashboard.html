@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - Real-Time Communication</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <main class="dashboard">
+    <header class="dashboard-header">
+      <div class="user-greeting">
+        Welcome back, <span id="user-name">...</span>
+      </div>
+      <button class="btn-secondary" id="logout-btn">Logout</button>
+    </header>
+
+    <div class="meeting-actions">
+      <div class="action-card">
+        <h3>Create a Meeting</h3>
+        <div class="inline-form">
+          <button class="btn-primary" id="create-meeting-btn">New Meeting</button>
+        </div>
+      </div>
+      <div class="action-card">
+        <h3>Join a Meeting</h3>
+        <form class="inline-form" id="join-form">
+          <input type="text" id="join-room-id" placeholder="Enter room ID" autocomplete="off" required />
+          <button type="submit" class="btn-primary">Join Meeting</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="dashboard-message" class="auth-message"></div>
+  </main>
+
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>

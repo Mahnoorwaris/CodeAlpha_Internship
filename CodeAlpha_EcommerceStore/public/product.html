@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Details | CodeAlpha Store</title>
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="brand">CodeAlpha<span>Store</span></a>
+      <nav class="nav">
+        <a href="/">Products</a>
+        <a href="/cart.html" class="nav-cart">Cart <span id="cart-count" class="cart-count">0</span></a>
+        <span id="auth-area"></span>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <p><a href="/" class="back-link">&larr; Back to products</a></p>
+
+    <div id="status-area"></div>
+
+    <section id="product-detail" class="detail-grid"></section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 CodeAlpha Store &middot; Simple E-commerce Task</p>
+  </footer>
+
+  <script src="/js/cart-store.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/product.js"></script>
+</body>
+</html>

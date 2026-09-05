@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meeting - Real-Time Communication</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <div class="meeting-wrap">
+    <header class="meeting-topbar">
+      <div class="meeting-room-info">
+        <span>Room: <span id="room-display-id">...</span></span>
+      </div>
+      <div class="meeting-topbar-actions">
+        <span id="connection-status" class="connection-status">Connecting...</span>
+      </div>
+    </header>
+
+    <div class="meeting-body">
+      <main class="meeting-videos" id="video-grid">
+        <!-- video tiles injected here -->
+      </main>
+
+      <aside class="meeting-panel hidden" id="side-panel">
+        <div class="panel-tabs">
+          <button class="panel-tab active" data-panel="chat">Chat</button>
+          <button class="panel-tab" data-panel="whiteboard">Whiteboard</button>
+          <button class="panel-tab" data-panel="files">Files</button>
+          <button class="panel-tab" data-panel="participants">Members</button>
+        </div>
+
+        <div class="panel-view active" id="view-chat">
+          <div class="chat-log" id="chat-log"></div>
+          <form class="chat-form" id="chat-form">
+            <input type="text" id="chat-input" placeholder="Type a message..." autocomplete="off" maxlength="1000" />
+            <button type="submit" class="chat-send">Send</button>
+          </form>
+        </div>
+
+        <div class="panel-view" id="view-whiteboard">
+          <div class="whiteboard-toolbar">
+            <button type="button" class="wb-btn" id="wb-color-red" data-color="#e53935"></button>
+            <button type="button" class="wb-btn" id="wb-color-blue" data-color="#1e88e5"></button>
+            <button type="button" class="wb-btn" id="wb-color-black" data-color="#212121"></button>
+            <input type="range" id="wb-size" min="1" max="20" value="3" title="Brush size" />
+            <button type="button" class="wb-btn wb-clear" id="wb-clear">Clear</button>
+          </div>
+          <canvas id="whiteboard" class="whiteboard-canvas"></canvas>
+        </div>
+
+        <div class="panel-view" id="view-files">
+          <div class="file-share-box">
+            <input type="file" id="file-input" />
+            <button type="button" class="btn-primary" id="upload-btn">Upload</button>
+          </div>
+          <div class="file-log" id="file-log"></div>
+        </div>
+
+        <div class="panel-view" id="view-participants">
+          <ul class="participant-list" id="participant-list"></ul>
+        </div>
+      </aside>
+    </div>
+
+    <nav class="controls-bar">
+      <button class="control-btn" id="mic-btn" title="Mute / unmute microphone">🎤</button>
+      <button class="control-btn" id="camera-btn" title="On / off camera">📹</button>
+      <button class="control-btn" id="screen-btn" title="Share screen">🖥️</button>
+      <button class="control-btn" id="panel-btn" title="Toggle Chat / Whiteboard panel">💬</button>
+      <button class="control-btn leave" id="leave-btn" title="Leave meeting">Leave</button>
+    </nav>
+  </div>
+
+  <div id="meeting-error" class="meeting-error hidden"></div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/webrtc.js"></script>
+  <script src="/js/whiteboard.js"></script>
+  <script src="/js/meeting.js"></script>
+</body>
+</html>

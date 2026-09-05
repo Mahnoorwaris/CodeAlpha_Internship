@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout | CodeAlpha Store</title>
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="brand">CodeAlpha<span>Store</span></a>
+      <nav class="nav">
+        <a href="/">Products</a>
+        <a href="/cart.html" class="nav-cart">Cart <span id="cart-count" class="cart-count">0</span></a>
+        <span id="auth-area"></span>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-head">
+      <h1>Checkout</h1>
+      <p id="checkout-subtitle" class="subtitle"></p>
+    </section>
+
+    <div id="status-area"></div>
+
+    <section id="checkout-layout" class="cart-layout" aria-live="polite">
+      <div class="cart-summary checkout-form-panel">
+        <h2>Shipping Information</h2>
+        <div id="form-error" class="form-error" hidden></div>
+        <form id="checkout-form">
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="e.g. 01012345678" required />
+          </div>
+          <div class="form-group">
+            <label for="address">Address</label>
+            <input type="text" id="address" name="address" placeholder="Street, building, apartment" required />
+          </div>
+          <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" required />
+          </div>
+          <button type="submit" id="place-order-btn" class="btn btn-primary btn-block">Place Order</button>
+        </form>
+      </div>
+
+      <aside class="cart-summary">
+        <h2>Order Summary</h2>
+        <div id="summary-items"></div>
+        <div class="summary-row summary-total">
+          <span>Total</span>
+          <strong id="checkout-total">$0.00</strong>
+        </div>
+        <a href="/cart.html" class="btn btn-outline btn-block">Back to Cart</a>
+      </aside>
+    </section>
+
+    <section id="order-confirmation" hidden>
+      <div class="status-box confirmation-box">
+        <span class="icon">✅</span>
+        <h2>Order placed successfully!</h2>
+        <p>Thank you, your order has been received.</p>
+        <p class="confirmation-id">Order ID: <code id="confirmation-order-id"></code></p>
+        <a href="/my-orders.html" class="btn btn-primary">View My Orders</a>
+        <a href="/" class="btn btn-outline">Continue Shopping</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 CodeAlpha Store &middot; Simple E-commerce Task</p>
+  </footer>
+
+  <script src="/js/cart-store.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/checkout.js"></script>
+</body>
+</html>

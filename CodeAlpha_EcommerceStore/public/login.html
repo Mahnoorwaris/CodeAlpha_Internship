@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | CodeAlpha Store</title>
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="brand">CodeAlpha<span>Store</span></a>
+      <nav class="nav">
+        <a href="/">Products</a>
+        <a href="/cart.html" class="nav-cart">Cart <span id="cart-count" class="cart-count">0</span></a>
+        <span id="auth-area"></span>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container auth-container">
+    <div class="auth-card">
+      <h1>Welcome back</h1>
+      <p class="auth-subtitle">Log in to your account</p>
+
+      <div id="form-error" class="form-error" hidden></div>
+
+      <form id="login-form">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Your password" required minlength="6" />
+        </div>
+        <button type="submit" id="submit-btn" class="btn btn-primary btn-block">Login</button>
+      </form>
+
+      <p class="auth-switch">No account yet? <a href="/register.html">Register here</a></p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 CodeAlpha Store &middot; Simple E-commerce Task</p>
+  </footer>
+
+  <script src="/js/cart-store.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/login.js"></script>
+</body>
+</html>

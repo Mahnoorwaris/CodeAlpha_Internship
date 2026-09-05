@@ -1,0 +1,29 @@
+{
+  "name": "codealpha_socialmediaplatform",
+  "version": "1.0.0",
+  "description": "CodeAlpha_SocialMediaPlatform - CodeAlpha Task 2 mini social media app (Express + MongoDB)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node tests/auth.test.js && node tests/users.test.js && node tests/posts.test.js && node tests/follow.test.js && node tests/likes.test.js && node tests/comments.test.js",
+    "test:frontend": "node tests/frontend.test.js",
+    "test:likes": "node tests/likes.test.js",
+    "test:comments": "node tests/comments.test.js",
+    "verify:db": "node scripts/verify-post-db.js",
+    "verify:follow": "node scripts/verify-follow-db.js",
+    "verify:likes": "node scripts/verify-likes-db.js",
+    "verify:comments": "node scripts/verify-comments-db.js"
+  },
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.9.3",
+    "mongodb-memory-server": "^11.2.0"
+  }
+}
