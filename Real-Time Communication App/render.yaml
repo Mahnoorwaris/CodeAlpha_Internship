@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: real-time-communication-app
+    runtime: node
+    region: oregon
+    plan: free
+    rootDir: "Real-Time Communication App"
+    buildCommand: npm install
+    startCommand: node server/index.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CLIENT_ORIGIN
+        value: ${RENDER_EXTERNAL_URL}
+    autoDeploy: true
