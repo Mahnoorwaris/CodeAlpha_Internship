@@ -4,7 +4,11 @@ const multer = require('multer');
 const { v4: uuidv4 } = require('uuid');
 const config = require('../config/env');
 
-const uploadDir = path.join(__dirname, '..', '..', 'uploads');
+const isVercel = !!process.env.VERCEL;
+
+const uploadDir = isVercel
+  ? path.join('/tmp', 'uploads')
+  : path.join(__dirname, '..', '..', 'uploads');
 if (!fs.existsSync(uploadDir)) {
   fs.mkdirSync(uploadDir, { recursive: true });
 }

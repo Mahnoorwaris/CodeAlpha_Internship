@@ -56,18 +56,25 @@ const server = http.createServer(app);
 
 const io = initSocket(server);
 
-const startServer = async () => {
-  try {
-    await connectDB();
-    server.listen(config.port, () => {
-      console.log(`Server running in ${config.nodeEnv} mode on port ${config.port}`);
-    });
-  } catch (error) {
-    console.error(`Failed to start server: ${error.message}`);
-    process.exit(1);
-  }
-};
+if (process.env.VERCEL) {
+  connectDB().catch((error) => {
+    console.error(`Vercel: failed to connect to database: ${error.message}`);
+  });
+  module.exports = server;
+} else {
+  const startServer = async () => {
+    try {
+      await connectDB();
+      server.listen(config.port, () => {
+        console.log(`Server running in ${config.nodeEnv} mode on port ${config.port}`);
+      });
+    } catch (error) {
+      console.error(`Failed to start server: ${error.message}`);
+      process.exit(1);
+    }
+  };
 
-startServer();
+  startServer();
 
-module.exports = { app, server, io };
+  module.exports = { app, server, io };
+}

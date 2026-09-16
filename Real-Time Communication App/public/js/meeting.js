@@ -222,6 +222,7 @@ async function init() {
 
   const socket = io('/', {
     auth: { token, name: state.selfUser ? state.selfUser.name : 'User' },
+    transports: ['websocket'],
   });
   state.socket = socket;
 

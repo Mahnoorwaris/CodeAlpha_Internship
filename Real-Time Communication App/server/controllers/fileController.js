@@ -4,6 +4,8 @@ const File = require('../models/File');
 const Room = require('../models/Room');
 const config = require('../config/env');
 
+const isVercel = !!process.env.VERCEL;
+
 const uploadFile = async (req, res, next) => {
   try {
     const { roomId } = req.params;
@@ -83,13 +85,9 @@ const downloadFile = async (req, res, next) => {
       return res.status(404).json({ success: false, message: 'File not found' });
     }
 
-    const filePath = path.join(
-      __dirname,
-      '..',
-      '..',
-      'uploads',
-      file.storedName
-    );
+    const filePath = isVercel
+      ? path.join('/tmp', 'uploads', file.storedName)
+      : path.join(__dirname, '..', '..', 'uploads', file.storedName);
 
     if (!fs.existsSync(filePath)) {
       return res.status(404).json({ success: false, message: 'File content missing on server' });
